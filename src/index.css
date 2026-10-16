@@ -155,6 +155,33 @@ body {
   gap: 0.5rem;
 }
 
+.nav-icon-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  color: var(--on-surface-variant);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.nav-icon-btn:hover {
+  color: var(--on-surface);
+  background: var(--surface-container-high);
+}
+
+.nav-icon-btn .material-symbols-outlined {
+  font-size: 18px;
+}
+
 .nav-cta {
   display: inline-flex;
   align-items: center;
@@ -259,6 +286,10 @@ body {
 /* ── Responsive ───────────────────────────────────────── */
 @media (max-width: 768px) {
   .nav-tabs {
+    display: none;
+  }
+
+  .nav-icon-links {
     display: none;
   }
 

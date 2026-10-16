@@ -16,18 +16,18 @@ const SCREENS = [
     path: '/',
   },
   {
-    id: 'resume',
-    label: 'Resume',
-    title: 'Resume & Experience',
-    file: '/screens/2_resume_experience.html',
-    path: '/resume',
-  },
-  {
     id: 'projects',
     label: 'Projects',
     title: 'Projects & Works',
     file: '/screens/3_projects_works.html',
     path: '/projects',
+  },
+  {
+    id: 'resume',
+    label: 'Resume',
+    title: 'Resume & Experience',
+    file: '/screens/2_resume_experience.html',
+    path: '/resume',
   },
   {
     id: 'contact',
@@ -89,6 +89,17 @@ export default function App() {
                 {mobileMenuOpen ? 'close' : 'menu'}
               </span>
             </button>
+            <div className="nav-icon-links">
+              <a className="nav-icon-btn" href="https://github.com/ArghaDasAR" target="_blank" rel="noopener noreferrer" title="Code Archive">
+                <span className="material-symbols-outlined">terminal</span>
+              </a>
+              <a className="nav-icon-btn" href="https://www.linkedin.com/in/arghadasar" target="_blank" rel="noopener noreferrer" title="Professional Record">
+                <span className="material-symbols-outlined">share</span>
+              </a>
+              <a className="nav-icon-btn" href="https://x.com/im_ArghaDas" target="_blank" rel="noopener noreferrer" title="Dispatches">
+                <span className="material-symbols-outlined">alternate_email</span>
+              </a>
+            </div>
             <a className="nav-cta" href="https://github.com/ArghaDasAR" target="_blank" rel="noopener noreferrer">
               <span className="material-symbols-outlined">terminal</span>
               <span>GitHub</span>
