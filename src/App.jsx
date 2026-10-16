@@ -65,8 +65,8 @@ export default function App() {
             href="#/"
             onClick={(e) => { e.preventDefault(); handleNav('/') }}
           >
-            <div className="nav-brand-monogram">AL</div>
-            <span className="nav-brand-text">Alex Laurent — Software & Systems</span>
+            <div className="nav-brand-monogram">AD</div>
+            <span className="nav-brand-text">Argha Das</span>
           </a>
 
           {/* Desktop Tabs */}
@@ -89,14 +89,14 @@ export default function App() {
                 {mobileMenuOpen ? 'close' : 'menu'}
               </span>
             </button>
-            <a className="nav-cta" href="#">
-              <span className="material-symbols-outlined">download</span>
-              <span>Resume PDF</span>
+            <a className="nav-cta" href="https://github.com/ArghaDasAR" target="_blank" rel="noopener noreferrer">
+              <span className="material-symbols-outlined">terminal</span>
+              <span>GitHub</span>
             </a>
             <img
               className="nav-avatar"
               alt="Profile"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXm68D_Gxxj4nwusV6-VDjkFWWN6mN5C9nqWiul4ARRrTcEwJndWry8GCWaPlWD9PMniYMyeGB5Sar7Z1ecGBdXGaH2__9pQHpjOd9mz79PyujiG8hUljMtQXL5IrcTKis6lZB4xvW-w_42pBss-H4TOm3FiaEHSHpyKfyWcbXDCgEt_lXc3x8829dtu1Aquhx7mhNhMCtQMzb8REEJdw-hTHQ48tH8phOKQIjfNA"
+              src="https://avatars.githubusercontent.com/u/312813327?v=4"
             />
           </div>
         </div>
