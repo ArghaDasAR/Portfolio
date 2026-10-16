@@ -182,6 +182,16 @@ body {
   font-size: 18px;
 }
 
+.nav-svg-icon {
+  display: block;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.nav-icon-btn:hover .nav-svg-icon {
+  transform: scale(1.08);
+}
+
 .nav-cta {
   display: inline-flex;
   align-items: center;
