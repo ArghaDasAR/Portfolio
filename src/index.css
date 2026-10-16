@@ -1,0 +1,314 @@
+/* ── Reset & Global Styles ─────────────────────────────── */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Matching the Stitch design system palette */
+  --surface: #fbf8ff;
+  --surface-container: #eeedf7;
+  --surface-container-low: #f4f2fd;
+  --surface-container-high: #e8e7f1;
+  --surface-container-highest: #e3e1ec;
+  --surface-container-lowest: #ffffff;
+  --on-surface: #1a1b22;
+  --on-surface-variant: #47464b;
+  --primary: #000000;
+  --on-primary: #ffffff;
+  --primary-container: #1b1b1e;
+  --secondary: #ac3400;
+  --secondary-container: #fd6b36;
+  --outline: #77767b;
+  --outline-variant: #c8c5cb;
+
+  --font-headline: 'Newsreader', Georgia, serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--surface);
+  color: var(--on-surface);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ── App Shell Layout ─────────────────────────────────── */
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ── Navigation ───────────────────────────────────────── */
+.nav-bar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(251, 248, 255, 0.88);
+  backdrop-filter: blur(20px) saturate(1.8);
+  -webkit-backdrop-filter: blur(20px) saturate(1.8);
+  border-bottom: 1px solid var(--surface-container-high);
+  padding: 0 clamp(1.25rem, 3vw, 3rem);
+}
+
+.nav-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  gap: 1.5rem;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: var(--on-surface);
+  min-width: 0;
+}
+
+.nav-brand-monogram {
+  width: 32px;
+  height: 32px;
+  background: var(--primary);
+  color: var(--on-primary);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-headline);
+  font-size: 16px;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+.nav-brand-text {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: -0.01em;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.nav-tabs {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px;
+  border-radius: 12px;
+  background: var(--surface-container-low);
+}
+
+.nav-tab {
+  padding: 6px 16px;
+  border-radius: 8px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 16px;
+  letter-spacing: 0.08em;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: var(--on-surface-variant);
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  background: none;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+}
+
+.nav-tab:hover {
+  color: var(--on-surface);
+  background: var(--surface-container-high);
+}
+
+.nav-tab.active {
+  background: var(--surface-container-highest);
+  color: var(--on-surface);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 16px;
+  border-radius: 8px;
+  background: var(--primary);
+  color: var(--on-primary);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 16px;
+  letter-spacing: 0.08em;
+  font-weight: 500;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.nav-cta:hover {
+  background: var(--primary-container);
+}
+
+.nav-cta .material-symbols-outlined {
+  font-size: 16px;
+}
+
+.nav-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--outline-variant);
+}
+
+/* ── Mobile Nav Toggle ────────────────────────────────── */
+.nav-mobile-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  border: none;
+  background: none;
+  color: var(--on-surface);
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.nav-mobile-toggle:hover {
+  background: var(--surface-container-high);
+}
+
+/* ── Content Area ─────────────────────────────────────── */
+.content-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.screen-iframe {
+  flex: 1;
+  width: 100%;
+  min-height: calc(100vh - 64px);
+  border: none;
+  display: block;
+  background: var(--surface);
+}
+
+/* ── Screen loading state ─────────────────────────────── */
+.screen-loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 64px);
+  gap: 1rem;
+  color: var(--on-surface-variant);
+}
+
+.screen-loader-spinner {
+  width: 32px;
+  height: 32px;
+  border: 2px solid var(--surface-container-high);
+  border-top-color: var(--secondary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.screen-loader-text {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: -0.01em;
+}
+
+/* ── Responsive ───────────────────────────────────────── */
+@media (max-width: 768px) {
+  .nav-tabs {
+    display: none;
+  }
+
+  .nav-tabs.mobile-open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 64px;
+    left: 0;
+    right: 0;
+    background: var(--surface);
+    border-bottom: 1px solid var(--surface-container-high);
+    padding: 12px 1.25rem;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+    border-radius: 0;
+    gap: 2px;
+    z-index: 99;
+  }
+
+  .nav-tabs.mobile-open .nav-tab {
+    width: 100%;
+    text-align: left;
+    padding: 10px 16px;
+    border-radius: 8px;
+  }
+
+  .nav-mobile-toggle {
+    display: flex;
+  }
+
+  .nav-brand-text {
+    display: none;
+  }
+
+  .nav-cta span:not(.material-symbols-outlined) {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-bar {
+    padding: 0 1rem;
+  }
+}
+
+/* ── Scrollbar (match Stitch) ─────────────────────────── */
+::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  scrollbar-width: none;
+}
