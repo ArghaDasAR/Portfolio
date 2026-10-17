@@ -10,28 +10,28 @@ import ScreenViewer from './ScreenViewer'
 const SCREENS = [
   {
     id: 'home',
-    label: 'Home',
+    label: 'HOME',
     title: 'Home — Overview',
     file: '/screens/1_home_overview.html',
     path: '/',
   },
   {
     id: 'projects',
-    label: 'Projects',
+    label: 'PROJECTS',
     title: 'Projects & Works',
     file: '/screens/3_projects_works.html',
     path: '/projects',
   },
   {
     id: 'resume',
-    label: 'Resume',
+    label: 'RESUME',
     title: 'Resume & Experience',
     file: '/screens/2_resume_experience.html',
     path: '/resume',
   },
   {
     id: 'contact',
-    label: 'Contact',
+    label: 'CONTACT',
     title: 'About & Contact',
     file: '/screens/4_about_contact.html',
     path: '/contact',
@@ -65,8 +65,12 @@ export default function App() {
             href="#/"
             onClick={(e) => { e.preventDefault(); handleNav('/') }}
           >
-            <div className="nav-brand-monogram">AD</div>
-            <span className="nav-brand-text">Argha Das</span>
+            <img
+              src="/images/logo.png"
+              alt="Argha Das"
+              className="nav-brand-logo"
+            />
+            <span className="nav-brand-text">ARGHA DAS</span>
           </a>
 
           {/* Desktop Tabs */}
