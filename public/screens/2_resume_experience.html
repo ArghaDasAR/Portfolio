@@ -17,11 +17,11 @@
 </div>
 <!-- Action CTAs -->
 <div class="flex flex-wrap items-center gap-space-xs">
-<a class="inline-flex items-center gap-space-xs px-space-md py-space-xs rounded-lg bg-surface-container-high text-on-surface font-body-sm text-body-sm hover:bg-surface-container-highest transition-colors" href="/resume.pdf" id="viewResumeBtn" target="_blank" rel="noopener noreferrer">
+<button class="inline-flex items-center gap-space-xs px-space-md py-space-xs rounded-lg bg-surface-container-high text-on-surface font-body-sm text-body-sm hover:bg-surface-container-highest transition-colors cursor-pointer" id="viewResumeBtn" type="button">
 <span class="material-symbols-outlined text-[16px] text-on-surface-variant">description</span>
 <span>View Resume</span>
-</a>
-<button class="inline-flex items-center gap-space-xs px-space-md py-space-xs rounded-lg bg-primary text-on-primary font-body-sm text-body-sm hover:bg-primary-container shadow-sm transition-all" id="viewCvBtn">
+</button>
+<button class="inline-flex items-center gap-space-xs px-space-md py-space-xs rounded-lg bg-primary text-on-primary font-body-sm text-body-sm hover:bg-primary-container shadow-sm transition-all cursor-pointer" id="viewCvBtn" type="button">
 <span class="material-symbols-outlined text-[16px]">visibility</span>
 <span>View Curriculum Vitae</span>
 </button>
@@ -493,34 +493,48 @@
 </div>
 </aside>
 </div>
-<!-- Interactive Interactive Modal / Toast for Mock Download -->
-<div class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none p-space-md rounded-xl bg-primary text-on-primary shadow-xl flex items-center gap-space-sm" id="cvToast">
-<span class="material-symbols-outlined text-secondary text-[20px]">check_circle</span>
+<!-- Interactive Modal / Toast for Resume Updating -->
+<div class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none p-space-md rounded-xl bg-surface-container-lowest text-on-surface border border-secondary/40 shadow-2xl flex items-center gap-space-sm max-w-md" id="cvToast">
+<div class="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-secondary text-[22px]">info</span>
+</div>
 <div class="flex flex-col">
-<span class="font-headline-sm text-[14px]">Document Ready</span>
-<span class="font-label-code text-label-code text-on-primary-container">Argha_Das_CV.pdf generated</span>
+<span class="font-headline-sm text-[14px] text-on-surface font-semibold">Notice</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Resume is currently updating, Please try again later</span>
 </div>
 </div>
 </div>
 <!-- Inline Micro-interaction Script -->
 <script>
     (function initCvActions() {
+      const viewResumeBtn = document.getElementById('viewResumeBtn');
       const viewCvBtn = document.getElementById('viewCvBtn');
       const toast = document.getElementById('cvToast');
+      let timeoutId = null;
+
+      function showUpdatingToast() {
+        if (toast) {
+          if (timeoutId) clearTimeout(timeoutId);
+          toast.classList.remove('translate-y-24', 'opacity-0', 'pointer-events-none');
+          toast.classList.add('translate-y-0', 'opacity-100');
+          timeoutId = setTimeout(() => {
+            toast.classList.add('translate-y-24', 'opacity-0', 'pointer-events-none');
+            toast.classList.remove('translate-y-0', 'opacity-100');
+          }, 3500);
+        }
+      }
+
+      if (viewResumeBtn) {
+        viewResumeBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          showUpdatingToast();
+        });
+      }
 
       if (viewCvBtn) {
-        viewCvBtn.addEventListener('click', () => {
-          if (toast) {
-            toast.classList.remove('translate-y-24', 'opacity-0', 'pointer-events-none');
-            toast.classList.add('translate-y-0', 'opacity-100');
-            setTimeout(() => {
-              toast.classList.add('translate-y-24', 'opacity-0', 'pointer-events-none');
-              toast.classList.remove('translate-y-0', 'opacity-100');
-            }, 3000);
-          }
-          setTimeout(() => {
-            window.print();
-          }, 400);
+        viewCvBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          showUpdatingToast();
         });
       }
     })();
