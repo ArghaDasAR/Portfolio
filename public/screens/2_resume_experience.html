@@ -8,24 +8,22 @@
 <div class="flex flex-col gap-space-xs max-w-3xl">
 <div class="flex items-center gap-space-xs">
 <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
-<span class="font-label-caps text-label-caps uppercase text-secondary">Document Index: 2025-CV-REV.04</span>
-<span class="text-outline-variant font-label-code text-label-code">/</span>
-<span class="font-label-code text-label-code text-on-surface-variant">Authenticated Record</span>
+<span class="font-label-caps text-label-caps uppercase text-secondary">Document Index</span>
 </div>
-<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Curriculum Vitae &amp; Experience</h1>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">CV, Resume &amp; Experience</h1>
 <p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">
-          A systematic record of technical leadership, distributed infrastructure scaling, and design system engineering across tier-1 software institutions.
+          Aspiring Blockchain Developer and 1st-year B.Tech undergraduate at Government College of Engineering and Leather Technology (GCELT), exploring AI/ML, Web3, and cybersecurity architectures.
         </p>
 </div>
 <!-- Action CTAs -->
 <div class="flex flex-wrap items-center gap-space-xs">
-<button class="inline-flex items-center gap-space-xs px-space-md py-space-xs rounded-lg bg-surface-container-high text-on-surface font-body-sm text-body-sm hover:bg-surface-container-highest transition-colors" id="printBtn">
-<span class="material-symbols-outlined text-[16px] text-on-surface-variant">print</span>
-<span>Print Friendly Version</span>
-</button>
-<button class="inline-flex items-center gap-space-xs px-space-md py-space-xs rounded-lg bg-primary text-on-primary font-body-sm text-body-sm hover:bg-primary-container shadow-sm transition-all" id="downloadPdfBtn">
-<span class="material-symbols-outlined text-[16px]">download</span>
-<span>Download Official PDF (v2025.1)</span>
+<a class="inline-flex items-center gap-space-xs px-space-md py-space-xs rounded-lg bg-surface-container-high text-on-surface font-body-sm text-body-sm hover:bg-surface-container-highest transition-colors" href="/resume.pdf" id="viewResumeBtn" target="_blank" rel="noopener noreferrer">
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">description</span>
+<span>View Resume</span>
+</a>
+<button class="inline-flex items-center gap-space-xs px-space-md py-space-xs rounded-lg bg-primary text-on-primary font-body-sm text-body-sm hover:bg-primary-container shadow-sm transition-all" id="viewCvBtn">
+<span class="material-symbols-outlined text-[16px]">visibility</span>
+<span>View Curriculum Vitae</span>
 </button>
 </div>
 </section>
@@ -34,25 +32,25 @@
 <div class="grid grid-cols-2 md:grid-cols-4 gap-gutter">
 <div class="flex flex-col gap-space-xs min-w-0">
 <span class="font-label-caps text-label-caps uppercase text-on-surface-variant">Current Title</span>
-<span class="font-headline-sm text-headline-sm text-on-surface truncate">Staff Software Architect</span>
+<span class="font-headline-sm text-headline-sm text-on-surface truncate">Software Developer</span>
 <span class="font-label-code text-label-code text-secondary flex items-center gap-1">
-<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Level 7 Technical Track
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> 1st Year Student
           </span>
 </div>
 <div class="flex flex-col gap-space-xs min-w-0">
 <span class="font-label-caps text-label-caps uppercase text-on-surface-variant">Coordinates</span>
-<span class="font-headline-sm text-headline-sm text-on-surface truncate">San Francisco, CA</span>
-<span class="font-label-code text-label-code text-on-surface-variant">Remote or Hybrid Sync</span>
+<span class="font-headline-sm text-headline-sm text-on-surface truncate">Kolkata, IN</span>
+<span class="font-label-code text-label-code text-on-surface-variant">West Bengal, India</span>
 </div>
 <div class="flex flex-col gap-space-xs min-w-0">
 <span class="font-label-caps text-label-caps uppercase text-on-surface-variant">Primary Domain</span>
-<span class="font-headline-sm text-headline-sm text-on-surface truncate">Distributed &amp; Frontend</span>
-<span class="font-label-code text-label-code text-on-surface-variant">Consensus &amp; UI Engines</span>
+<span class="font-headline-sm text-headline-sm text-on-surface truncate">AI and Machine Learning</span>
+<span class="font-label-code text-label-code text-on-surface-variant">Web3 &amp; Cybersecurity</span>
 </div>
 <div class="flex flex-col gap-space-xs min-w-0">
-<span class="font-label-caps text-label-caps uppercase text-on-surface-variant">Legal Clearance</span>
-<span class="font-headline-sm text-headline-sm text-on-surface truncate">US Citizen</span>
-<span class="font-label-code text-label-code text-outline">Standard Federal Eligibility</span>
+<span class="font-label-caps text-label-caps uppercase text-on-surface-variant">Citizenship</span>
+<span class="font-headline-sm text-headline-sm text-on-surface truncate">Indian Citizen</span>
+<span class="font-label-code text-label-code text-outline">Resident Indian Citizen</span>
 </div>
 </div>
 </section>
@@ -505,27 +503,22 @@
 <!-- Inline Micro-interaction Script -->
 <script>
     (function initCvActions() {
-      const printBtn = document.getElementById('printBtn');
-      const downloadBtn = document.getElementById('downloadPdfBtn');
+      const viewCvBtn = document.getElementById('viewCvBtn');
       const toast = document.getElementById('cvToast');
 
-      if (printBtn) {
-        printBtn.addEventListener('click', () => {
-          window.print();
-        });
-      }
-
-      if (downloadBtn && toast) {
-        downloadBtn.addEventListener('click', (e) => {
-          e.preventDefault();
-          // Trigger mock toast notification
-          toast.classList.remove('translate-y-24', 'opacity-0', 'pointer-events-none');
-          toast.classList.add('translate-y-0', 'opacity-100');
-
+      if (viewCvBtn) {
+        viewCvBtn.addEventListener('click', () => {
+          if (toast) {
+            toast.classList.remove('translate-y-24', 'opacity-0', 'pointer-events-none');
+            toast.classList.add('translate-y-0', 'opacity-100');
+            setTimeout(() => {
+              toast.classList.add('translate-y-24', 'opacity-0', 'pointer-events-none');
+              toast.classList.remove('translate-y-0', 'opacity-100');
+            }, 3000);
+          }
           setTimeout(() => {
-            toast.classList.add('translate-y-24', 'opacity-0', 'pointer-events-none');
-            toast.classList.remove('translate-y-0', 'opacity-100');
-          }, 3500);
+            window.print();
+          }, 400);
         });
       }
     })();
